@@ -17,9 +17,10 @@ config/icon="res://scenes/icon.svg"
 
 [display]
 
+window/size/viewport_height=640
 window/size/resizable=false
 window/size/window_width_override=1152
-window/size/window_height_override=648
+window/size/window_height_override=640
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=2
