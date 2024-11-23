@@ -6,7 +6,7 @@ const SPEED = 150.0
 var facing = "s"
 
 func _process(delta: float) -> void:
-	print(facing)
+	# print(facing)
 	if velocity == Vector2.ZERO:
 		if facing == "s":
 			$AnimatedSprite2D.play("playerIdleS")

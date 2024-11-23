@@ -19,10 +19,11 @@ config/icon="res://scenes/icon.svg"
 
 window/size/viewport_height=640
 window/size/resizable=false
-window/size/window_width_override=1152
-window/size/window_height_override=640
+window/size/window_width_override=2303
+window/size/window_height_override=1280
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_height"
+window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=2
 
 [input]

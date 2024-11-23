@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c1nj4rphqreki"]
+
+[node name="Node2D" type="Node2D"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-4, 546)
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2(580, -759)
+amount = 1000
+lifetime = 5.0
+preprocess = 10.0
+speed_scale = 1.2
+emission_shape = 3
+emission_rect_extents = Vector2(600, 1)
+gravity = Vector2(0, 250)
+angular_velocity_min = 10.0
+angular_velocity_max = 10.0
+linear_accel_min = 50.0
+linear_accel_max = 50.0
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(0, 0.317647, 0.819608, 0.541176)
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="."]
+position = Vector2(579, -769)
+amount = 25
+lifetime = 5.0
+preprocess = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 1)
+gravity = Vector2(0, 100)
+angular_velocity_min = 10.0
+angular_velocity_max = 10.0
+linear_accel_min = 50.0
+linear_accel_max = 50.0
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_min = 100.0
+scale_amount_max = 250.0
+color = Color(0.819608, 0.835294, 0.835294, 0.109804)

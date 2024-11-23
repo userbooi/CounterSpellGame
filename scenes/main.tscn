@@ -24,6 +24,8 @@ render_target_update_mode = 4
 [node name="PhysicalWorld" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_1xkq7")]
 
 [node name="player2" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_iyd0d")]
+z_index = 2
+position = Vector2(150, 150)
 scale = Vector2(0.5, 0.5)
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
@@ -40,8 +42,9 @@ render_target_update_mode = 4
 [node name="MentalWorld" parent="SubViewportContainer2/SubViewport" instance=ExtResource("5_2f7qd")]
 
 [node name="player2" parent="SubViewportContainer2/SubViewport" instance=ExtResource("6_iyd0d")]
+z_index = 4
 use_parent_material = true
-position = Vector2(576, 0)
+position = Vector2(150, 150)
 scale = Vector2(0.5, 0.5)
 
 [node name="Control" type="Control" parent="."]

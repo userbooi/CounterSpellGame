@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=4 uid="uid://dfu41ig71mvww"]
+[gd_scene load_steps=6 format=4 uid="uid://dfu41ig71mvww"]
 
 [ext_resource type="TileSet" uid="uid://dpq8q0df630wj" path="res://Assets/map/mapTileSheet.tres" id="1_dis0f"]
 [ext_resource type="Texture2D" uid="uid://ba0i5065picfp" path="res://Assets/Spikes.png" id="1_pws1s"]
+[ext_resource type="PackedScene" uid="uid://l0xd6xuykcpi" path="res://scenes/Ash.tscn" id="3_j7j4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kerdl"]
 texture = ExtResource("1_pws1s")
-texture_region_size = Vector2i(32, 32)
+texture_region_size = Vector2i(1, 1)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_gfpoy"]
@@ -22,9 +23,18 @@ tile_set = ExtResource("1_dis0f")
 
 [node name="Spikes" type="Area2D" parent="Level 1"]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Level 1/Spikes"]
+[node name="Background" type="TileMapLayer" parent="Level 1/Spikes"]
 tile_map_data = PackedByteArray("AAAMABEAAAAAAAAAAAANABEAAAAAAAAAAAAOABEAAAAAAAAAAAAPABEAAAAAAAAAAAAQABEAAAAAAAAAAAARABEAAAAAAAAAAAASABEAAAAAAAAAAAATABEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_gfpoy")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level 1/Spikes"]
 polygon = PackedVector2Array(386, 572, 393, 552, 404, 545, 634, 546, 642, 560, 631, 573)
+
+[node name="Node2D" parent="." instance=ExtResource("3_j7j4c")]
+z_index = 5
+position = Vector2(-8, 87)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1152, 0, 1155, 638, -1, 647, -1, -1, 1152, 0, 1620, -70, -172, -105, -186, 899, 1927, 839, 1636, -57)

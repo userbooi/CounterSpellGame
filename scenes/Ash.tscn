@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://l0xd6xuykcpi"]
+
+[sub_resource type="Curve" id="Curve_f4qls"]
+_data = [Vector2(0.111732, 0.641805), 0.0, 0.0, 0, 0, Vector2(0.854749, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2f20x"]
+offsets = PackedFloat32Array(0, 0.0366667, 0.723333, 0.983333)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.639216, 0, 0, 0, 0.113725, 0.533037, 0.533037, 0.533037, 1)
+
+[node name="Node2D" type="Node2D"]
+rotation = -1.37706
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-65.7954, -80.8454)
+amount = 1000
+lifetime = 6.0
+preprocess = 7.6
+speed_scale = 0.5
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(500, 1)
+gravity = Vector2(75, 25)
+angular_velocity_min = -50.0
+angle_min = -52.0
+angle_max = 247.3
+scale_amount_min = 10.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_f4qls")
+color_ramp = SubResource("Gradient_2f20x")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
