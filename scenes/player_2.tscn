@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://mo8kn7j0x2rc"]
+[gd_scene load_steps=4 format=3 uid="uid://bsosvq1e6vyym"]
 
-[ext_resource type="Script" path="res://scripts/player_2.gd" id="1_4lrch"]
-[ext_resource type="Texture2D" uid="uid://cvasorfh411r6" path="res://scenes/icon.svg" id="1_20tck"]
+[ext_resource type="Script" path="res://scripts/player_2.gd" id="1_d01co"]
+[ext_resource type="Texture2D" uid="uid://cvasorfh411r6" path="res://scenes/icon.svg" id="2_ilsiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liwyk"]
 size = Vector2(110, 111)
 
 [node name="player2" type="CharacterBody2D"]
-script = ExtResource("1_4lrch")
+script = ExtResource("1_d01co")
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.4, 1.4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_20tck")
+texture = ExtResource("2_ilsiu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.5)
