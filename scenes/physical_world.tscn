@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://cvv67wnbx5x25"]
 
 [ext_resource type="TileSet" uid="uid://dpq8q0df630wj" path="res://Assets/map/mapTileSheet.tres" id="1_lbrug"]
-[ext_resource type="PackedScene" uid="uid://c1nj4rphqreki" path="res://scenes/Rain.tscn" id="2_5vm8q"]
+[ext_resource type="PackedScene" uid="uid://b2plbrgvbbl31" path="res://scenes/Rain.tscn" id="2_5vm8q"]
 [ext_resource type="Texture2D" uid="uid://bheno14wugw2d" path="res://Shaders/Lightmask.webp" id="3_4v500"]
 
 [node name="PhysicalWorld" type="Node2D"]
