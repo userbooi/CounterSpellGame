@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cvnrvap5w71r3" path="res://scenes/player.tscn" id="3_qg66m"]
 [ext_resource type="Shader" path="res://Shaders/GrayscaleShader.gdshader" id="4_7h3ya"]
 [ext_resource type="PackedScene" uid="uid://dfu41ig71mvww" path="res://scenes/mental_world.tscn" id="5_2f7qd"]
-[ext_resource type="PackedScene" uid="uid://mo8kn7j0x2rc" path="res://scenes/player_2.tscn" id="6_iyd0d"]
+[ext_resource type="PackedScene" uid="uid://bsosvq1e6vyym" path="res://scenes/player_2.tscn" id="6_iyd0d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg58e"]
 shader = ExtResource("4_7h3ya")

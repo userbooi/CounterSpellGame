@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://dfu41ig71mvww"]
+[gd_scene load_steps=4 format=4 uid="uid://dfu41ig71mvww"]
+
+[ext_resource type="Texture2D" uid="uid://ba0i5065picfp" path="res://Assets/Spikes.png" id="1_pws1s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kerdl"]
+texture = ExtResource("1_pws1s")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gfpoy"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_kerdl")
 
 [node name="MentalWorld" type="Node2D"]
 
@@ -13,3 +24,14 @@ offset_left = 653.0
 offset_top = 439.0
 offset_right = 693.0
 offset_bottom = 479.0
+
+[node name="Level 1" type="Node2D" parent="."]
+
+[node name="Spikes" type="Area2D" parent="Level 1"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Level 1/Spikes"]
+tile_map_data = PackedByteArray("AAAMABEAAAAAAAAAAAANABEAAAAAAAAAAAAOABEAAAAAAAAAAAAPABEAAAAAAAAAAAAQABEAAAAAAAAAAAARABEAAAAAAAAAAAASABEAAAAAAAAAAAATABEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_gfpoy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level 1/Spikes"]
+polygon = PackedVector2Array(386, 572, 393, 552, 404, 545, 634, 546, 642, 560, 631, 573)
