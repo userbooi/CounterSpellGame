@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="CounterSpellGame"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://scenes/icon.svg"
 
 [display]
 
 window/size/resizable=false
+window/size/window_width_override=2304
+window/size/window_height_override=1296
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=2
 
 [input]

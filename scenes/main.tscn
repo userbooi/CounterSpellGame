@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://daoj6twkd7gtj"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_b0dfp"]
+[ext_resource type="PackedScene" uid="uid://cvv67wnbx5x25" path="res://scenes/physical_world.tscn" id="2_1xkq7"]
+[ext_resource type="PackedScene" uid="uid://cvnrvap5w71r3" path="res://scenes/player.tscn" id="3_qg66m"]
+[ext_resource type="Shader" path="res://Shaders/GrayscaleShader.gdshader" id="4_7h3ya"]
+[ext_resource type="PackedScene" uid="uid://dfu41ig71mvww" path="res://scenes/mental_world.tscn" id="5_2f7qd"]
+[ext_resource type="PackedScene" uid="uid://mo8kn7j0x2rc" path="res://scenes/player_2.tscn" id="6_iyd0d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sg58e"]
+shader = ExtResource("4_7h3ya")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_b0dfp")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 576.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="PhysicalWorld" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_1xkq7")]
+
+[node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_qg66m")]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_sg58e")
+offset_left = 576.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="MentalWorld" parent="SubViewportContainer2/SubViewport" instance=ExtResource("5_2f7qd")]
+
+[node name="player2" parent="SubViewportContainer2/SubViewport" instance=ExtResource("6_iyd0d")]
+use_parent_material = true
+position = Vector2(576, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1158.0
+offset_bottom = 646.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.0
+offset_right = 6.0
+offset_bottom = 656.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
