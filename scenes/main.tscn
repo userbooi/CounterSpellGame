@@ -65,4 +65,4 @@ grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1152, 640)
+position = Vector2(1376, 458)
