@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cvv67wnbx5x25"]
+
+[node name="PhysicalWorld" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 90.0
+offset_top = 199.0
+offset_right = 130.0
+offset_bottom = 239.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 445.0
+offset_top = 271.0
+offset_right = 485.0
+offset_bottom = 481.0
