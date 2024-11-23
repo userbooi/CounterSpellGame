@@ -7,8 +7,8 @@ const JUMP_VELOCITY = -400.0
 
 func _physics_process(delta: float) -> void:
 	
-	var direction := Input.get_axis("left2", "right2")
-	var vertical := Input.get_axis("top2", "bottom2")
+	var direction := Input.get_axis("left", "right")
+	var vertical := Input.get_axis("top", "bottom")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
