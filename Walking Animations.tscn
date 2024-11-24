@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxraw6xj20pis"]
+
+[sub_resource type="Gradient" id="Gradient_75y23"]
+colors = PackedColorArray(0, 0, 0, 0.341176, 1, 1, 1, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 16
+direction = Vector2(-1, -0.5)
+spread = 15.35
+gravity = Vector2(0, 75)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+angular_velocity_min = 50.0
+angular_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(0.214703, 0.0989845, 1.20327e-08, 0.384314)
+color_ramp = SubResource("Gradient_75y23")

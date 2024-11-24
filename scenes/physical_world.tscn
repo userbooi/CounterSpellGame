@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xn17eupdarac" path="res://Assets/map/moreObstacles.png" id="2_ksftm"]
 [ext_resource type="Texture2D" uid="uid://bheno14wugw2d" path="res://Shaders/Lightmask.webp" id="3_4v500"]
 [ext_resource type="Texture2D" uid="uid://qvfwdkw7d78a" path="res://Assets/map/Walls.png" id="4_tryel"]
-[ext_resource type="PackedScene" uid="uid://c2k6fauikxlxc" path="res://scenes/Fire.tscn" id="7_cm58u"]
+[ext_resource type="PackedScene" uid="uid://c2k6fauikxlxc" path="res://scenes/fire.tscn" id="7_cm58u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1pfp"]
 texture = ExtResource("2_ksftm")

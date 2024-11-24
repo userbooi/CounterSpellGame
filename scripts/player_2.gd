@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 
-var moveable = true
+var moveable = false
 var dead = false
 var facing = "s"
 

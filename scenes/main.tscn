@@ -1,14 +1,44 @@
-[gd_scene load_steps=12 format=3 uid="uid://daoj6twkd7gtj"]
+[gd_scene load_steps=15 format=3 uid="uid://daoj6twkd7gtj"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_b0dfp"]
 [ext_resource type="PackedScene" uid="uid://cvv67wnbx5x25" path="res://scenes/physical_world.tscn" id="2_1xkq7"]
 [ext_resource type="Shader" path="res://Shaders/GrayscaleShader.gdshader" id="4_7h3ya"]
 [ext_resource type="PackedScene" uid="uid://dfu41ig71mvww" path="res://scenes/mental_world.tscn" id="5_2f7qd"]
 [ext_resource type="PackedScene" uid="uid://bsosvq1e6vyym" path="res://scenes/player_2.tscn" id="6_iyd0d"]
-[ext_resource type="PackedScene" uid="uid://csai3meuve1ck" path="res://scenes/Timer.tscn" id="6_rfw78"]
+[ext_resource type="PackedScene" uid="uid://b8ktek4pp7icv" path="res://scenes/Timer.tscn" id="6_rfw78"]
+[ext_resource type="AudioStream" uid="uid://kynjpyryxyvs" path="res://Assets/musics/mmm-ominous-111728.mp3" id="7_4xf1m"]
+[ext_resource type="AudioStream" uid="uid://cq37khdea6pas" path="res://Assets/musics/ominous-tension-157906.mp3" id="8_2oc1x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg58e"]
 shader = ExtResource("4_7h3ya")
+
+[sub_resource type="Animation" id="Animation_mgn00"]
+resource_name = "Opening"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_70217"]
 length = 0.001
@@ -48,6 +78,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_4cdwl"]
 resource_name = "fade_black"
@@ -63,6 +105,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_4ru6m"]
@@ -80,9 +134,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d8rt0"]
 _data = {
+"Opening": SubResource("Animation_mgn00"),
 "RESET": SubResource("Animation_70217"),
 "fade_black": SubResource("Animation_4cdwl"),
 "fade_out": SubResource("Animation_4ru6m")
@@ -155,9 +222,6 @@ offset_bottom = 656.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1376, 458)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_d8rt0")
@@ -168,18 +232,28 @@ offset_right = 1168.0
 offset_bottom = 665.0
 color = Color(0, 0, 0, 1)
 
-[node name="Node2D" parent="." instance=ExtResource("6_rfw78")]
+[node name="UI" parent="." instance=ExtResource("6_rfw78")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 141.0
-offset_top = 3.0
-offset_right = 141.0
-offset_bottom = 3.0
+offset_left = 569.0
+offset_top = 30.0
+offset_right = 569.0
+offset_bottom = 30.0
 grow_horizontal = 0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1376, 458)
+
+[node name="ambiance1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_4xf1m")
+
+[node name="ambiance2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_2oc1x")
 
 [connection signal="advance" from="SubViewportContainer/SubViewport/YSort/PhysicalWorld" to="." method="_on_physical_world_advance"]
 [connection signal="retract" from="SubViewportContainer/SubViewport/YSort/PhysicalWorld" to="." method="_on_physical_world_retract"]
 [connection signal="advance" from="SubViewportContainer2/SubViewport/YSort/MentalWorld" to="." method="_on_mental_world_advance"]
 [connection signal="hit" from="SubViewportContainer2/SubViewport/YSort/MentalWorld" to="." method="_on_mental_world_hit"]
 [connection signal="retract" from="SubViewportContainer2/SubViewport/YSort/MentalWorld" to="." method="_on_mental_world_retract"]
+[connection signal="start_game" from="UI" to="." method="_on_ui_start_game"]

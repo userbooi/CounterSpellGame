@@ -1,24 +1,223 @@
-[gd_scene load_steps=2 format=3 uid="uid://csai3meuve1ck"]
+[gd_scene load_steps=9 format=3 uid="uid://b8ktek4pp7icv"]
 
-[sub_resource type="GDScript" id="GDScript_cy155"]
-script/source = "extends Control
+[ext_resource type="FontFile" uid="uid://bw4mrpgdxpwu1" path="res://Assets/font/PublicPixel-rv0pA.ttf" id="1_jbnhh"]
+[ext_resource type="Script" path="res://scenes/timer.gd" id="1_v5ipk"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv5yl"]
+bg_color = Color(0, 0, 0, 0.662745)
 
-var counter = 0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3orea"]
+bg_color = Color(0, 0, 0, 0.729412)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+[sub_resource type="Animation" id="Animation_vglel"]
+resource_name = "Opening"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-386, 156), Vector2(-386, 156), Vector2(31, 92)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title1:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.6, 0.6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Title2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-388.5, 156), Vector2(-388.5, 156), Vector2(-507, 92)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title2:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Title2:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.6, 0.6)]
+}
 
+[sub_resource type="Animation" id="Animation_quhnq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-386, 156)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title1:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Title2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title2:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Title2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-520, 444)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("winText:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("promptText:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$Label.text = str(round(counter * 10) / 10)
+[sub_resource type="Animation" id="Animation_f2bi6"]
+resource_name = "winTextAnim"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("winText:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("promptText:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5, 3.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
-
-func _on_timer_timeout() -> void:
-	counter += 0.1
-"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwesv"]
+_data = {
+"Opening": SubResource("Animation_vglel"),
+"RESET": SubResource("Animation_quhnq"),
+"winTextAnim": SubResource("Animation_f2bi6")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -26,21 +225,98 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
-script = SubResource("GDScript_cy155")
+script = ExtResource("1_v5ipk")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
-autostart = true
 
-[node name="Label" type="Label" parent="."]
+[node name="counterLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -95.0
-offset_right = 95.0
-offset_bottom = 118.0
+offset_left = -565.0
+offset_top = -38.0
+offset_right = -375.0
+offset_bottom = 80.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 75
 
+[node name="Title1" type="Label" parent="."]
+layout_mode = 0
+offset_left = -386.0
+offset_top = 156.0
+offset_right = 444.0
+offset_bottom = 261.0
+theme_override_fonts/font = ExtResource("1_jbnhh")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_tv5yl")
+text = "All in the Same"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -388.5
+offset_top = 156.0
+offset_right = 439.5
+offset_bottom = 258.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_jbnhh")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_3orea")
+text = "All in the Same
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startbutton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_top = 478.0
+offset_right = 101.0
+offset_bottom = 556.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_jbnhh")
+theme_override_font_sizes/font_size = 33
+text = "Begin"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dwesv")
+}
+
+[node name="winText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -516.0
+offset_top = 280.0
+offset_right = 534.0
+offset_bottom = 435.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_jbnhh")
+theme_override_font_sizes/font_size = 40
+text = "You have aquired a sound state of mind"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="promptText" type="Label" parent="."]
+layout_mode = 0
+offset_left = -237.0
+offset_top = 477.0
+offset_right = 263.0
+offset_bottom = 521.0
+theme_override_fonts/font = ExtResource("1_jbnhh")
+theme_override_font_sizes/font_size = 25
+text = "press \"c\" to restart"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="startbutton" to="." method="_on_startbutton_pressed"]

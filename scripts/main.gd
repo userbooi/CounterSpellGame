@@ -11,13 +11,33 @@ var start_pos = Vector2(15, 15)
 
 var p1Finished = false
 var p2Finished = false
+var won = false
+var play_sound = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$ColorRect.self_modulate.a = 0
-	reset_player()
+	start()
+	
+func start():
+	play_sound = false
+	$ColorRect.self_modulate.a = 1
+	player1.position = start_pos
+	player2.position = start_pos
 	physicalWorld.show_level(currLevel, levels)
 	mentalWorld.show_level(currLevel, levels)
+	openingCutscene();
+	
+func openingCutscene():
+	$UI/AnimationPlayer.play("Opening")
+	await get_tree().create_timer(2.5).timeout
+	
+	$UI/startbutton.set_disabled(false)
+	$UI/startbutton.visible = true
+	
+	play_sound = true
+	$AnimationPlayer.play("Opening")
+	await get_tree().create_timer(2.5).timeout
+	
 
 func reset_player():
 	player1.get_node("AnimatedSprite2D").self_modulate.a = 1
@@ -27,13 +47,26 @@ func reset_player():
 	player2.dead = false
 	player1.moveable = true
 	player2.moveable = true
+	
 	player1.position = start_pos
 	player2.position = start_pos
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if play_sound:
+		if !$ambiance1.is_playing():
+			$ambiance1.play()
+		if !$ambiance2.is_playing():
+			$ambiance2.play()
+	else:
+		$ambiance1.stop()
+		$ambiance2.stop()
 	if p1Finished and p2Finished:
 		transferLevel()
+	if won and Input.is_action_just_pressed("reload"):
+		currLevel = 1
+		$UI.setUp()
+		start()
 
 func transferLevel():
 	player1.moveable = false
@@ -45,14 +78,20 @@ func transferLevel():
 	$AnimationPlayer.play("fade_black")
 	await get_tree().create_timer(1.5).timeout
 	
-	reset_player()
-	mentalWorld.show_level(currLevel, levels)
-	physicalWorld.show_level(currLevel, levels)
+	if currLevel <= levels:
+		reset_player()
+		mentalWorld.show_level(currLevel, levels)
+		physicalWorld.show_level(currLevel, levels)
 	
-	$AnimationPlayer.play("fade_out")
-	await get_tree().create_timer(1.5).timeout 
-	player1.moveable = true
-	player2.moveable = true
+		$AnimationPlayer.play("fade_out")
+		await get_tree().create_timer(1.5).timeout 
+		player1.moveable = true
+		player2.moveable = true
+	else:
+		$UI/Timer.stop()
+		$UI/AnimationPlayer.play("winTextAnim")
+		await get_tree().create_timer(1).timeout 
+		won = true
 	
 	
 
@@ -87,3 +126,7 @@ func _on_mental_world_hit() -> void:
 	reset_player()
 	$AnimationPlayer.play("fade_out")
 	await get_tree().create_timer(1.5).timeout
+
+
+func _on_ui_start_game() -> void:
+	reset_player()
