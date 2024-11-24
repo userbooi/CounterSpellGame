@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c1nj4rphqreki"]
+[gd_scene format=3 uid="uid://b2plbrgvbbl31"]
 
 [node name="Node2D" type="Node2D"]
 light_mask = 2
