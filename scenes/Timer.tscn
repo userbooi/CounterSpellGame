@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8ktek4pp7icv"]
+[gd_scene load_steps=10 format=3 uid="uid://b8ktek4pp7icv"]
 
 [ext_resource type="FontFile" uid="uid://bw4mrpgdxpwu1" path="res://Assets/font/PublicPixel-rv0pA.ttf" id="1_jbnhh"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="1_v5ipk"]
@@ -183,6 +183,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("deathText:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_f2bi6"]
 resource_name = "winTextAnim"
@@ -212,10 +224,27 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_jkino"]
+resource_name = "deathAnim"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("deathText:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.5, 3.5, 4.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dwesv"]
 _data = {
 "Opening": SubResource("Animation_vglel"),
 "RESET": SubResource("Animation_quhnq"),
+"deathAnim": SubResource("Animation_jkino"),
 "winTextAnim": SubResource("Animation_f2bi6")
 }
 
@@ -260,10 +289,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -388.5
-offset_top = 156.0
-offset_right = 439.5
-offset_bottom = 258.0
+offset_left = -520.0
+offset_top = 444.0
+offset_right = 308.0
+offset_bottom = 546.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_jbnhh")
 theme_override_font_sizes/font_size = 51
@@ -317,6 +346,18 @@ offset_bottom = 521.0
 theme_override_fonts/font = ExtResource("1_jbnhh")
 theme_override_font_sizes/font_size = 25
 text = "press \"c\" to restart"
+
+[node name="deathText" type="Label" parent="."]
+layout_mode = 0
+offset_left = -473.0
+offset_top = 324.0
+offset_right = 492.0
+offset_bottom = 397.0
+theme_override_fonts/font = ExtResource("1_jbnhh")
+theme_override_font_sizes/font_size = 35
+text = "Your mental state further deteriorates"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="startbutton" to="." method="_on_startbutton_pressed"]

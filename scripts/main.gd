@@ -123,6 +123,8 @@ func _on_mental_world_hit() -> void:
 
 	$AnimationPlayer.play("fade_black")
 	await get_tree().create_timer(1.5).timeout
+	$UI/AnimationPlayer.play("deathAnim")
+	await get_tree().create_timer(5).timeout
 	reset_player()
 	$AnimationPlayer.play("fade_out")
 	await get_tree().create_timer(1.5).timeout

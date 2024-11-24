@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://scripts/mental_world.gd" id="1_f1x3t"]
 [ext_resource type="Texture2D" uid="uid://dllikmi652tws" path="res://Assets/Spikes.png" id="1_pws1s"]
 [ext_resource type="Texture2D" uid="uid://bl0nfcmetr167" path="res://Assets/map/map.png" id="3_2pdm8"]
-[ext_resource type="PackedScene" path="res://scenes/Ash.tscn" id="3_j7j4c"]
+[ext_resource type="PackedScene" uid="uid://l0xd6xuykcpi" path="res://scenes/Ash.tscn" id="3_j7j4c"]
 [ext_resource type="Texture2D" uid="uid://xn17eupdarac" path="res://Assets/map/moreObstacles.png" id="3_kt8m8"]
 [ext_resource type="Texture2D" uid="uid://qvfwdkw7d78a" path="res://Assets/map/Walls.png" id="4_gjbht"]
-[ext_resource type="PackedScene" uid="uid://c2k6fauikxlxc" path="res://scenes/fire.tscn" id="6_cjh38"]
+[ext_resource type="PackedScene" uid="uid://c2k6fauikxlxc" path="res://scenes/Fire.tscn" id="6_cjh38"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysevn"]
 texture = ExtResource("3_2pdm8")
