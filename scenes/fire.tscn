@@ -1,39 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkfvgsqqkpx45"]
+[gd_scene load_steps=7 format=3 uid="uid://c2k6fauikxlxc"]
 
-[sub_resource type="Curve" id="Curve_j3cli"]
-min_value = -360.0
-max_value = 360.0
-_data = [Vector2(0.0251397, 277.739), 0.0, 0.0, 0, 0, Vector2(0.469274, -89.1021), 0.0, 0.0, 0, 0, Vector2(0.930168, 319.981), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 4
+[ext_resource type="Texture2D" uid="uid://dt034qkkxkfhh" path="res://Assets/map/pixil-frame-0-8.png" id="1_1gpxy"]
+[ext_resource type="Script" path="res://scripts/fire.gd" id="1_le3wm"]
+[ext_resource type="Texture2D" uid="uid://bheno14wugw2d" path="res://Shaders/Lightmask.webp" id="2_musfa"]
 
-[sub_resource type="Curve" id="Curve_j4na4"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dl5x4"]
+radius = 46.0
+
+[sub_resource type="Curve" id="Curve_j51cm"]
 min_value = -200.0
 max_value = 200.0
-_data = [Vector2(0.111732, 192.589), 0.0, 0.0, 0, 0, Vector2(0.27933, 93.7767), 0.0, 0.0, 0, 0, Vector2(0.446927, 9.78624), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.0027933, 14.7269), 0.0, 0.0, 0, 0, Vector2(0.159218, -1.33015), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_q8j4y"]
-_data = [Vector2(0.00558659, 0.987648), 0.0, 0.0, 0, 0, Vector2(0.723464, 0.895954), 0.449094, 0.449094, 0, 0, Vector2(0.910614, 0.742775), 0.0, 0.0, 0, 0, Vector2(0.988827, 0.438005), 0.0, 0.0, 0, 0]
-point_count = 4
+[sub_resource type="Gradient" id="Gradient_eq8w8"]
+offsets = PackedFloat32Array(0.0266667, 0.146667, 0.516667, 0.746667, 0.966667)
+colors = PackedColorArray(1, 1, 1, 1, 0.944723, 0.959398, 7.70092e-07, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
 
-[sub_resource type="Gradient" id="Gradient_33buk"]
-offsets = PackedFloat32Array(0, 0.273333, 0.533333, 0.773333, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.896093, 0.570771, 0.355564, 1, 0.859331, 0.0598807, 0.207935, 1, 0.68134, 0.375835, 0.0185074, 1, 0.204145, 0.0966234, 0.00150521, 1)
+[node name="Node2D" type="Node2D"]
+z_index = 3
+script = ExtResource("1_le3wm")
 
-[node name="Explosion" type="Node2D"]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="campfireWood" type="Sprite2D" parent="Area2D"]
+light_mask = 2
+position = Vector2(1121.87, 125.125)
+scale = Vector2(1.57759, 1.57759)
+texture = ExtResource("1_1gpxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1122, 129)
+shape = SubResource("CircleShape2D_dl5x4")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1116, 118)
+color = Color(1, 0.6, 0.0117647, 1)
+energy = 3.0
+texture = ExtResource("2_musfa")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 100
-explosiveness = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_max = 50.0
-angular_velocity_min = -50.0
-angular_velocity_curve = SubResource("Curve_j3cli")
-linear_accel_min = -1.0
-linear_accel_curve = SubResource("Curve_j4na4")
-damping_max = 5.0
+position = Vector2(1122, 126)
+amount = 1000
+lifetime = 2.0
+preprocess = 1.0
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 5.0
+spread = 0.0
+gravity = Vector2(0, -50)
+angular_velocity_min = 15.0
+angular_velocity_max = 15.0
+radial_accel_min = 3.0
+radial_accel_max = 5.0
+radial_accel_curve = SubResource("Curve_j51cm")
 scale_amount_min = 2.0
 scale_amount_max = 2.0
-scale_amount_curve = SubResource("Curve_q8j4y")
-color_ramp = SubResource("Gradient_33buk")
+color_ramp = SubResource("Gradient_eq8w8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
