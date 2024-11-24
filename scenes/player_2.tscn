@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bsosvq1e6vyym"]
+[gd_scene load_steps=38 format=3 uid="uid://bsosvq1e6vyym"]
 
 [ext_resource type="Script" path="res://scripts/player_2.gd" id="1_d01co"]
 [ext_resource type="Texture2D" uid="uid://dxmm1ttvyrm5a" path="res://Assets/player/playerIdleE/pixil-frame-0.png" id="2_us8h8"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://b6iw3kub5kikq" path="res://Assets/player/playerWalkW/pixil-frame-1.png" id="31_7pydi"]
 [ext_resource type="Texture2D" uid="uid://drq0xl0cybkv4" path="res://Assets/player/playerWalkW/pixil-frame-2.png" id="32_h10ay"]
 [ext_resource type="Texture2D" uid="uid://bl6lsvx4cqm76" path="res://Assets/player/playerWalkW/pixil-frame-3.png" id="33_3r1st"]
+[ext_resource type="Texture2D" uid="uid://bheno14wugw2d" path="res://Shaders/Lightmask.webp" id="34_hhng8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1eq6w"]
 animations = [{
@@ -192,6 +193,7 @@ limit_right = 768
 limit_bottom = 640
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
 z_as_relative = false
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_1eq6w")
@@ -204,3 +206,13 @@ occluder = SubResource("OccluderPolygon2D_4n630")
 y_sort_enabled = true
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_gefl4")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(2.12494, -3.87503)
+scale = Vector2(0.730859, 0.730859)
+color = Color(1, 0.645163, 0.590458, 1)
+energy = 2.75
+texture = ExtResource("34_hhng8")
+texture_scale = 5.0
